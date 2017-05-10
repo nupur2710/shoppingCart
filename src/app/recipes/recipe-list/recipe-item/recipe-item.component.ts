@@ -15,8 +15,7 @@ export class RecipeItemComponent implements OnInit {
     ngOnInit() {}
 
     onClickRecipeItem() {
-       this.recipesService.recipeSelected.emit(this.recipe);
-
+        this.recipesService.recipeSelected.emit(this.recipe);
     }
 
 }
