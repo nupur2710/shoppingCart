@@ -1,0 +1,10 @@
+<app-header (recipeClicked)="onRecipeClicked($event)" (shoppingListClicked)="onShoppingListClicked($event)"></app-header>
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12">
+            <app-recipes *ngIf="onRecipeSelected === true"></app-recipes>
+           
+            <app-shopping-list *ngIf="onRecipeSelected === false"></app-shopping-list>
+        </div>
+    </div>
+</div>
