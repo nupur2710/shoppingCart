@@ -1,12 +1,21 @@
 import { EventEmitter } from '@angular/core'
 import { Recipe } from './recipe.model';
+import { Ingredient } from '../shared/shopping.model';
 
 export class RecipesService {
     recipeSelected = new EventEmitter < Recipe > ();
 
     private recipes: Recipe[] = [
-        new Recipe("My first test recipe", "This is the description of my first recipe", "http://www.tasty-indian-recipes.com/wp-content/uploads/2013/10/Jain-Pav-Bhaji-Recipe.jpg"),
-        new Recipe("My second test recipe", "This is the description of my first recipe", "http://img1.rnkr-static.com/list_img_v2/3221/2263221/full/new-fast-food-items-2016-u3.jpg")
+        new Recipe("Pav Bhaji", "This is the recipe of pav bhaji", "http://www.tasty-indian-recipes.com/wp-content/uploads/2013/10/Jain-Pav-Bhaji-Recipe.jpg", [
+            new Ingredient('tomatoes', 5),
+            new Ingredient('capsicum', 3),
+            new Ingredient('bread', 2)
+        ]),
+        new Recipe("Frankie", "This is the description frankie recipe", "http://img1.rnkr-static.com/list_img_v2/3221/2263221/full/new-fast-food-items-2016-u3.jpg", [
+            new Ingredient('potatoes', 5),
+            new Ingredient('cucumber', 3),
+            new Ingredient('bread', 2)
+        ])
     ];
 
 
