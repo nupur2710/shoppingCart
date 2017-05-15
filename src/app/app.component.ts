@@ -6,14 +6,6 @@ import { Component } from '@angular/core';
     styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-    onRecipeSelected =true;
-
-    onRecipeClicked() {
-        this.onRecipeSelected = true;
-    }
-
-    onShoppingListClicked() {
-        this.onRecipeSelected = false;
-    }
+   
 
 }
