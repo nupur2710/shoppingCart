@@ -5,8 +5,6 @@ import { ShoppingListSevice } from '../shopping-list/shopping-list.service';
 
 @Injectable()
 export class RecipesService {
-    recipeSelected = new EventEmitter < Recipe > ();
-
     private recipes: Recipe[] = [
         new Recipe("Pav Bhaji", "This is the recipe of pav bhaji", "http://www.tasty-indian-recipes.com/wp-content/uploads/2013/10/Jain-Pav-Bhaji-Recipe.jpg", [
             new Ingredient('tomatoes', 5),

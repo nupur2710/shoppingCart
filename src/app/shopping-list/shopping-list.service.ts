@@ -1,8 +1,8 @@
-import { EventEmitter } from '@angular/core';
 import { Ingredient } from '../shared/shopping.model';
+import { Subject } from 'rxjs/Subject'
 
 export class ShoppingListSevice {
-    ingredientsChanged = new EventEmitter < Ingredient[] > ();
+    ingredientsChanged = new Subject < Ingredient[] > ();
     private ingredients: Ingredient[] = [];
     constructor() {}
 
@@ -12,7 +12,7 @@ export class ShoppingListSevice {
 
     addItem(ingredient) {
         this.ingredients.push(ingredient);
-        this.ingredientsChanged.emit(this.ingredients.slice());
+        this.ingredientsChanged.next(this.ingredients.slice());
     }
 
     addIngredients(ingredients: Ingredient[]) {
@@ -22,6 +22,6 @@ export class ShoppingListSevice {
         // we can use the above method to add ingredients, but this method will emit a lot of events
         //we can use it too, but we can have a better approach
         this.ingredients.push(...ingredients);
-        this.ingredientsChanged.emit(this.ingredients.slice());
+        this.ingredientsChanged.next(this.ingredients.slice());
     }
 }
