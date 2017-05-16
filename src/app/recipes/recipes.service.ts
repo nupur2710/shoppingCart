@@ -2,9 +2,12 @@ import { EventEmitter, Injectable } from '@angular/core'
 import { Recipe } from './recipe.model';
 import { Ingredient } from '../shared/shopping.model';
 import { ShoppingListSevice } from '../shopping-list/shopping-list.service';
+import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 export class RecipesService {
+
+    recipesChanged = new Subject < Recipe[] > ();
     private recipes: Recipe[] = [
         new Recipe("Pav Bhaji", "This is the recipe of pav bhaji", "http://www.tasty-indian-recipes.com/wp-content/uploads/2013/10/Jain-Pav-Bhaji-Recipe.jpg", [
             new Ingredient('tomatoes', 5),
@@ -35,5 +38,15 @@ export class RecipesService {
 
     getRecipeById(index: number) {
         return this.recipes[index];
+    }
+
+    addRecipe(recipe: Recipe) {
+        this.recipes.push(recipe);
+        this.recipesChanged.next(this.recipes.slice());
+    }
+
+    updateRecipe(index: number, recipe: Recipe) {
+        this.recipes[index] = recipe;
+        this.recipesChanged.next(this.recipes.slice());
     }
 }
