@@ -31,7 +31,7 @@ export class RecipeEditComponent implements OnInit {
         let recipeDescription = "";
 
         if (this.editMode) {
-            const recipe = this.recipesService.getRecipe(this.id);
+            const recipe = this.recipesService.getRecipeById(this.id);
             recipeName = recipe.name;
             recipeImagePath = recipe.imagePath;
             recipeDescription = recipe.description;
@@ -41,5 +41,9 @@ export class RecipeEditComponent implements OnInit {
             'imagePath': new FormControl(recipeImagePath),
             'description': new FormControl(recipeDescription)
         });
+    }
+
+    onSubmit(){
+        console.log(this.recipeForm);
     }
 }
