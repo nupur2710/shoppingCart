@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ShoppingListSevice } from '../shopping-list.service';
 import { Ingredient } from '../../shared/shopping.model';
@@ -14,25 +14,31 @@ export class ShoppingEditComponent implements OnInit, OnDestroy {
     subscription: Subscription;
     editMode = false;
     editedItemIndex: number;
+    editedItem: Ingredient;
+    @ViewChild('f') shoppingListForm: NgForm
 
-    constructor(private shoppingListService: ShoppingListSevice) {}
+        constructor(private shoppingListService: ShoppingListSevice) {}
 
-    ngOnInit() {
+        ngOnInit() {
         this.subscription = this.shoppingListService.startedEditing
             .subscribe(
                 (index: number) => {
                     this.editMode = true;
                     this.editedItemIndex = index;
+                    this.editedItem = this.shoppingListService.getIngredient(index);
+                    this.shoppingListForm.setValue({
+                        'name': this.editedItem.name,
+                        'amount': this.editedItem.amount
+                    })
                 }
             );
-
     }
 
-    ngOnDestroy() {
+        ngOnDestroy() {
         this.subscription.unsubscribe();
     }
 
-    onAddItem(form: NgForm) {
+        onAddItem(form: NgForm) {
         const value = form.value;
         const newIngredient = new Ingredient(value.name, value.amount);
         this.shoppingListService.addItem(newIngredient);
