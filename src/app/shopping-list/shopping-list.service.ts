@@ -24,6 +24,4 @@ export class ShoppingListSevice {
         this.ingredients.push(...ingredients);
         this.ingredientsChanged.emit(this.ingredients.slice());
     }
-
-
 }
