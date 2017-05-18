@@ -6,7 +6,7 @@ import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component
 import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.component';
 import { RecipesComponent } from './recipes/recipes.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-
+import { SignupComponent } from './auth/signup/signup.component';
 const appRoutes: Routes = [ //localhost:4200
     {
         path: 'recipes',
@@ -30,6 +30,9 @@ const appRoutes: Routes = [ //localhost:4200
         path: 'shopping-list',
         component: ShoppingListComponent,
 
+    }, {
+        path: 'signup',
+        component: SignupComponent
     }, {
         path: '',
         redirectTo: '/recipes',
