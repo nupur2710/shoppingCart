@@ -7,6 +7,9 @@ import { RecipeDetailComponent } from './recipes/recipe-detail/recipe-detail.com
 import { RecipesComponent } from './recipes/recipes.component';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { SigninComponent } from './auth/signin/signin.component';
+import { AuthGuard } from './auth/auth-guard.service';
+
 const appRoutes: Routes = [ //localhost:4200
     {
         path: 'recipes',
@@ -16,13 +19,15 @@ const appRoutes: Routes = [ //localhost:4200
             component: RecipeStartComponent
         }, {
             path: 'new',
-            component: RecipeEditComponent
+            component: RecipeEditComponent,
+            canActivate: [AuthGuard]
         }, {
             path: ':id',
             component: RecipeDetailComponent
         }, {
             path: ':id/edit',
-            component: RecipeEditComponent
+            component: RecipeEditComponent,
+            canActivate: [AuthGuard]
         }]
 
     }, //localhost:4200/users
@@ -33,6 +38,9 @@ const appRoutes: Routes = [ //localhost:4200
     }, {
         path: 'signup',
         component: SignupComponent
+    }, {
+        path: 'signin',
+        component: SigninComponent
     }, {
         path: '',
         redirectTo: '/recipes',
