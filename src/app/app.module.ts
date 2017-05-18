@@ -16,7 +16,9 @@ import { DropdownDirective } from './shared/dropdown.directive';
 import { ShoppingListSevice } from './shopping-list/shopping-list.service';
 import { RecipeStartComponent } from './recipes/recipe-start/recipe-start.component';
 import { RecipeEditComponent } from './recipes/recipe-edit/recipe-edit.component';
-import { RecipesService } from './recipes/recipes.service'
+import { RecipesService } from './recipes/recipes.service';
+import { DataStorageService } from './shared/data-storage.service';
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -38,7 +40,7 @@ import { RecipesService } from './recipes/recipes.service'
         HttpModule,
         AppRoutingModule
     ],
-    providers: [ShoppingListSevice, RecipesService],
+    providers: [ShoppingListSevice, RecipesService, DataStorageService],
     bootstrap: [AppComponent]
 })
 export class AppModule {}
