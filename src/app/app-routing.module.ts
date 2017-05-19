@@ -46,6 +46,10 @@ const appRoutes: Routes = [ //localhost:4200
         redirectTo: '/recipes',
         pathMatch: 'full'
     },
+    {
+        path: '**',
+        redirectTo: '/recipes'
+    }
 
 ];
 
