@@ -4,7 +4,16 @@ import { Subject } from 'rxjs/Subject'
 export class ShoppingListSevice {
     ingredientsChanged = new Subject < Ingredient[] > ();
     startedEditing = new Subject < number > ();
-    private ingredients: Ingredient[] = [];
+    private ingredients: Ingredient[] = [{
+        'name': "milk",
+        'amount': 2
+    }, {
+        'name': "corn",
+        'amount': 10
+    }, {
+        'name': "peas",
+        'amount': 20
+    }];
     constructor() {}
 
     getIngredients() {
