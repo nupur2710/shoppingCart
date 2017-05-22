@@ -12,8 +12,8 @@ const appRoutes: Routes = [ //localhost:4200
         component: ShoppingListComponent,
 
     }, {
-        path:"recipes",
-        loadChildren:"./recipes/recipes.module#RecipesModule"
+        path: "recipes",
+        loadChildren: "./recipes/recipes.module#RecipesModule"
     }, {
         path: '',
         component: HomeComponent
