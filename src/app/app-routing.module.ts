@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
-
+import { HomeComponent } from './home/home.component';
 
 
 const appRoutes: Routes = [ //localhost:4200
@@ -12,9 +12,11 @@ const appRoutes: Routes = [ //localhost:4200
         component: ShoppingListComponent,
 
     }, {
+        path:"recipes",
+        loadChildren:"./recipes/recipes.module#RecipesModule"
+    }, {
         path: '',
-        redirectTo: '/recipes',
-        pathMatch: 'full'
+        component: HomeComponent
     }
 
 ];

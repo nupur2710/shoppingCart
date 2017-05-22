@@ -17,11 +17,13 @@ import { DataStorageService } from './shared/data-storage.service';
 
 import { AuthService } from './auth/auth.service';
 import { AuthGuard } from './auth/auth-guard.service';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
     declarations: [
         AppComponent,
-        HeaderComponent
+        HeaderComponent,
+        HomeComponent
     ],
     imports: [
         BrowserModule,
