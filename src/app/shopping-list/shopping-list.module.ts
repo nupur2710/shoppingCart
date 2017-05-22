@@ -13,8 +13,11 @@ import { ShoppingListRoutingModule } from './shopping-list-routing.module';
     ],
     imports: [
         CommonModule,
-        FormsModule,
-        ShoppingListRoutingModule
+        FormsModule
+
+    ],
+    exports: [
+        
     ]
 })
 
